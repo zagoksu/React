@@ -10,7 +10,7 @@ export default function Forecast(props) {
    const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${input}&units=metric&appid=${API_KEY}`;
 
-   function getForecast(event) { 
+   function handleSubmit(event) { 
        event.preventDefault();
        if (input.length === 0) {
             return setError(true);
@@ -41,7 +41,7 @@ export default function Forecast(props) {
    return (
     <div>
         <h1>Weather</h1>
-        <form onSubmit={getForecast}>
+        <form onSubmit={handleSubmit}>
             <input
                 className="Input"
                 type="text"

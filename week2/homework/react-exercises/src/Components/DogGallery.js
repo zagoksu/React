@@ -13,7 +13,7 @@ export default function DogGallery() {
             setLoading(true);
             const response = await fetch('https://dog.ceo/api/breeds/image/random');
             const data = await response.json();
-            setDogPhotos([...dogPhotos, data.message]);
+            setDogPhotos(oldDogPhotos => [...oldDogPhotos, data.message]);
         } catch (error) {
             setError(true);
         } finally {
@@ -27,9 +27,9 @@ export default function DogGallery() {
       {dogPhotos.length === 0 ? (
         <p>Get your first dog by clicking the button!</p>
       ) : (
-        dogPhotos.map(imgUrL => (
+        dogPhotos.map(imgUrl => (
           <div>
-            <DogPhoto url={imgUrL} />
+            <DogPhoto url={imgUrl} />
           </div>
         ))
       )}

@@ -4,7 +4,7 @@ import React from 'react';
 export default function Button({onClick, title}) {
   return (
     <div>
-      <button style={{ padding: '10px' }} onClick={onClick}>
+      <button className="my-button-class" style={{ padding: '10px' }} onClick={onClick}>
         Get a {title}
       </button>
     </div>
